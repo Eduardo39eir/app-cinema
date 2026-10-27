@@ -1,0 +1,245 @@
+.blur-words {
+  display: inline;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.animated-number {
+  font-variant-numeric: tabular-nums;
+}
+.bottom-nav a.active > span:before {
+  display: none;
+}
+.nav-selection {
+  position: absolute;
+  inset: -4px -13px;
+  background: #ff4d5217;
+  border-radius: 12px;
+  pointer-events: none;
+}
+.bottom-nav svg {
+  position: relative;
+  z-index: 1;
+}
+.tabs {
+  isolation: isolate;
+}
+.tabs button.active:after {
+  display: none;
+}
+.tabs button {
+  isolation: isolate;
+}
+.tab-selection {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  z-index: -1;
+  pointer-events: none;
+}
+.home-tabs .tabs button.active {
+  background: transparent;
+}
+.home-tabs .tab-selection {
+  inset: 0;
+  height: auto;
+  border-radius: 999px;
+  background: var(--action);
+}
+.sheet {
+  transition: none;
+}
+@starting-style {
+  .sheet[open] {
+    transform: none;
+    opacity: 1;
+  }
+}
+.sheet::backdrop {
+  animation: backdrop-in 240ms ease-out both;
+}
+.sheet[data-closing="true"]::backdrop {
+  animation: backdrop-out 160ms ease-in both;
+}
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes backdrop-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes cine-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes cine-focus {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+@keyframes cine-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes cine-pop {
+  0% {
+    scale: 0.8;
+  }
+  65% {
+    scale: 1.12;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes cine-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+.hero-background,
+.detail-hero > img {
+  animation: cine-zoom 3.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-content > * {
+  animation: cine-rise 650ms var(--ease) both;
+}
+.hero-content > :nth-child(2) {
+  animation-delay: 65ms;
+}
+.hero-content > :nth-child(3) {
+  animation-delay: 120ms;
+}
+.hero-content > :nth-child(4) {
+  animation-delay: 170ms;
+}
+.hero-content > :nth-child(5) {
+  animation-delay: 210ms;
+}
+.welcome-copy,
+.onboard-step > h1,
+.page-header h1 {
+  animation: cine-focus 550ms var(--ease) both;
+}
+.onboard-step,
+.onboard-bottom {
+  animation: cine-rise 480ms var(--ease) both;
+}
+.onboarding-collage {
+  animation: cine-zoom 1.5s var(--ease) both;
+}
+.onboarding-collage img {
+  animation: cine-rise 750ms var(--ease) both;
+}
+.onboarding-collage img:nth-child(2n) {
+  animation-delay: 100ms;
+}
+.onboarding-collage img:nth-child(3n) {
+  animation-delay: 180ms;
+}
+.dots > * {
+  transition:
+    width 300ms var(--ease),
+    background-color 220ms ease;
+}
+.seat-row > button.selected,
+.genre-tile.active > svg,
+.poster-add.selected > svg,
+.post-actions > button.coral > svg,
+.movie-actions button.active > svg {
+  animation: cine-pop 320ms var(--ease);
+}
+.seat-row > button,
+.chip,
+.genre-tile,
+.session-time,
+.date-rail button {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 180ms var(--ease);
+}
+.star-item > span {
+  transition: width 220ms var(--ease);
+}
+.qr-skeleton {
+  background: linear-gradient(100deg, #20232a 20%, #343842 45%, #20232a 70%);
+  background-size: 200% 100%;
+  animation: cine-shimmer 1.6s linear infinite;
+}
+.ticket-success > svg {
+  animation: cine-pop 500ms var(--ease);
+}
+.button > svg {
+  transition: transform 220ms var(--ease);
+}
+.poster-image {
+  overflow: hidden;
+}
+.poster-image > img {
+  transition: transform 400ms var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .poster-image:hover > img {
+    transform: scale(1.045);
+  }
+  .button:hover > svg:last-child {
+    transform: translateX(3px);
+  }
+  .session-time:hover {
+    transform: translateY(-3px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
