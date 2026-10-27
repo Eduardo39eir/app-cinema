@@ -1,5 +1,15 @@
 # Cine
 
+## Baixar para Android
+
+### [⬇️ Baixar Cine 1.1.0 — APK](https://github.com/Eduardo39eir/app-cinema/releases/download/v1.1.0/Cine-1.1.0.apk)
+
+Android 7 ou superior · 7,2 MB · [Ver versão e arquivos](https://github.com/Eduardo39eir/app-cinema/releases/tag/v1.1.0)
+
+Abra o link no celular, baixe o APK e toque no arquivo para instalar. Se o Android solicitar, permita a instalação por esse navegador. Quem já tem o Cine pode instalar por cima da versão anterior para manter seus dados.
+
+O aplicativo funciona sem o computador após a instalação. Trailers e mapas precisam de internet. Como este repositório é privado, o download exige uma conta do GitHub com acesso ao projeto.
+
 Aplicativo web de cinema em português, feito com React, TypeScript e Vite a partir de **Prompt_App_de_Filmes_Referencias.docx**. A interface prioriza celulares entre 320 e 430 px. No computador, aparece dentro de uma moldura interativa de iPhone, com tela de 390 × 844 e escala ajustada à janela. No celular, utiliza a tela diretamente.
 
 A prévia também pode ser aberta em **http://localhost:5173/?preview=iphone**. Ela simula a apresentação do aparelho no navegador, com navegação, painéis e rolagem dentro da tela; não emula o sistema iOS. Os ícones da interface são da coleção gratuita [Iconsax](https://app.iconsax.io/), integrados localmente, com contorno e versões preenchidas para os estados selecionados. Fonte e licença em `ICONSAX-NOTICE.md`.
