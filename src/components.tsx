@@ -25,6 +25,7 @@ import type { Movie, MovieList, User } from "./types";
 import { motion } from "motion/react";
 import { animate } from "motion/mini";
 import { cineEase, useQuietMotion } from "./animations";
+import { assetUrl } from "./assets";
 
 export function Img({
   src,
@@ -48,7 +49,7 @@ export function Img({
     </span>
   ) : (
     <img
-      src={src}
+      src={assetUrl(src)}
       alt={alt}
       className={className}
       style={style}

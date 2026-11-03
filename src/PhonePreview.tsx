@@ -16,15 +16,26 @@ const embedded = window.self !== window.top;
 const forcePreview =
   new URLSearchParams(location.search).get("preview") === "iphone";
 
+function appUrl() {
+  const url = new URL(location.href);
+  url.searchParams.delete("preview");
+  return url.pathname + url.search + url.hash;
+}
+
 function PhonePreview() {
   const stage = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.8);
   const [time, setTime] = useState(() => new Date());
-  const [src] = useState(() => {
-    const url = new URL(location.href);
-    url.searchParams.delete("preview");
-    return url.pathname + url.search + url.hash;
-  });
+  const [src, setSrc] = useState(appUrl);
+  useEffect(() => {
+    const update = () => setSrc(appUrl());
+    window.addEventListener("hashchange", update);
+    window.addEventListener("popstate", update);
+    return () => {
+      window.removeEventListener("hashchange", update);
+      window.removeEventListener("popstate", update);
+    };
+  }, []);
   useLayoutEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       setScale(

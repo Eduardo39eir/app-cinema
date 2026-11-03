@@ -93,6 +93,8 @@ npm test        # Testes de navegação, reservas, acessibilidade e animações
 
 Os testes usam Playwright com Microsoft Edge. A configuração do navegador fica em `playwright.config.ts`.
 
+A compilação para hospedagem estática está descrita no [guia do GitHub Pages](docs/PAGES.md).
+
 ## Tecnologias
 
 React · TypeScript · Vite · React Router · Zustand · Motion · Capacitor · Playwright.

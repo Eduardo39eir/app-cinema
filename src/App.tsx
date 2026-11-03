@@ -7,6 +7,7 @@ import {
 } from "react";
 import {
   BrowserRouter,
+  HashRouter,
   Link,
   NavLink,
   Route,
@@ -25,6 +26,9 @@ import { useStore } from "./store";
 import { installAndroidBackHandler } from "./native";
 import { motion } from "motion/react";
 import { CineMotion, ContentMotion, useQuietMotion } from "./animations";
+
+// Hash routes can be opened and refreshed on static hosting without rewrites.
+const Router = import.meta.env.MODE === "pages" ? HashRouter : BrowserRouter;
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -108,7 +112,16 @@ function Shell() {
   }, []);
   return (
     <>
-      <a href="#main-content" className="skip-link">
+      <a
+        href="#main-content"
+        className="skip-link"
+        onClick={(event) => {
+          event.preventDefault();
+          const main = document.getElementById("main-content");
+          main?.focus({ preventScroll: true });
+          main?.scrollIntoView({ behavior: "instant" });
+        }}
+      >
         Pular para conteúdo
       </a>
       <div className="app-shell">
@@ -123,6 +136,7 @@ function Shell() {
               animate={{ opacity: 1 }}
               transition={{ duration: quiet ? 0 : 0.22 }}
               id="main-content"
+              tabIndex={-1}
               className={hideNav ? "main-content focused" : "main-content"}
             >
               <Routes>
@@ -212,9 +226,9 @@ export default function App() {
   return (
     <ErrorBoundary>
       <CineMotion>
-        <BrowserRouter>
+        <Router>
           <Shell />
-        </BrowserRouter>
+        </Router>
       </CineMotion>
     </ErrorBoundary>
   );

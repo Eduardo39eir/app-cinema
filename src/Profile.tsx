@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatedNumber } from "./animations";
+import { assetUrl } from "./assets";
 import {
   Link,
   useNavigate,
@@ -952,7 +953,7 @@ export function SettingsPage() {
           </p>
           <a
             className="text-link coral"
-            href="/assets/sources.json"
+            href={assetUrl("/assets/sources.json")}
             target="_blank"
             rel="noreferrer"
           >
